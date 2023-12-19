@@ -1,5 +1,4 @@
-import random
-# Wordle remake game - December 2023
+# Wordle clone game - December 2023
 
 class Game:
     def __init__(self, letters, max, solution, guessNum=0):
