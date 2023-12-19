@@ -33,13 +33,19 @@ class GameBoard:
     def updateDisplay(self, guessNum, guess, colours):
         self.updateGuesses(guess)
         frame = self.newGuessFrame(guess, colours)
-        frame["master"] = self.grid_frame
         frame.grid(row=guessNum)
     
     def newGuessFrame(self, guess, colours):
-        frame = tk.Frame()
+        frame = tk.Frame(master=self.grid_frame)
         for i in range(len(guess)):
-            box = tk.Label(master=frame, height=5, width=7, text=guess[i], bg=colours[i])
+            box = tk.Label(
+                master=frame, 
+                height=5, 
+                width=7, 
+                text=guess[i], 
+                bg=colours[i],
+                font="Helvetica 24"
+            )
             box.grid(row=0, column=i, padx=5, pady=0)
         return frame
 

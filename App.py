@@ -2,24 +2,25 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from GameText import GameText
 from GameBoard import GameBoard
+from GameSystem import GameSystem
 from Input import Input
 
 def main():
     input = Input()
     board = GameBoard(5,5)
-    game = GameText(5,5,"pound", input, board)
+    game = GameSystem(5,5,"pound", input, board)
     window = tk.Tk()
-    title = ttk.Label(text="Wordle")
+    title = ttk.Label(text="Wordle", font="Helvetica 24 bold")
     title.pack()
 
-    gameGrid = board.getGrid()
-    gameGrid.pack()
+    game.getBoard().getGrid().pack()
+    game.getInput().getInterface().pack()
     
-    submitSpace = input.getInterface()
-    submitSpace.pack()
-
     window.mainloop()
 
+
+
+    
 def chooseWord(letters):
     pass
 
