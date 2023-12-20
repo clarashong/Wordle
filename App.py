@@ -18,36 +18,4 @@ class App(tk.Tk):
 
         self.mainloop()
 
-
-
 App("Wordle Clone")
-
-
-"""
-def main():
-    input = Input()
-    board = GameBoard(5,5)
-    game = GameSystem(5,5,"pound",board)
-    window = tk.Tk()
-    title = ttk.Label(text="Wordle", font="Helvetica 24 bold")
-    title.pack()
-
-    game.getBoard().getGrid().pack()
-    input.getInterface().pack()
-
-    while(True):
-        print("window loop")
-        if (input.getPendingGuess()):
-            print("trying to update game")
-            game.update(input.getCurrentEntry())
-            input.setPendingGuess(False)
-        window.mainloop()
-
-    
-def chooseWord(letters):
-    pass
-
-if (__name__ == "__main__"):
-    main()
-
-"""
