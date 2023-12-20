@@ -1,12 +1,13 @@
-import random
-# Wordle remake game - December 2023
+# Wordle clone game - December 2023
+# GameText is a text version of wordle, where the clues are printed as just the colours
 
-class Game:
+class GameText:
     def __init__(self, letters, max, solution, guessNum=0):
         self.letters = letters
         self.guessNum = guessNum
         self.max = max
         self.solution = solution
+        self.finished = False
 
 
     def main(self):
@@ -17,8 +18,10 @@ class Game:
             print(result)
             if (self.checkWin(result)):
                 print("Congrats, you won!")
+                self.finished = True
                 return
         print("Too bad, you're out of guesses")
+        self.finished = True
         print("The answer was " + self.solution)
         return
 
@@ -48,7 +51,7 @@ class Game:
         for i in range (0, len(sol)):
             #right letter, right space
             if (guess[i] == sol[i]):
-                result.append("Green")
+                result.append("green")
                 checked.add(i)
             else: result.append("")
 
@@ -62,16 +65,19 @@ class Game:
                 
                 #letter not found in solution
                 if (index == False):
-                    result[i] = "Gray"
+                    result[i] = "gray"
                 #right letter, wrong space, and now checked already
                 elif(not index in checked) :
-                    result[i] = "Yellow"
+                    result[i] = "yellow"
                     checked.add(index)
                 #wrong letter, wrong space
                 else:
-                    result[i] = "Gray"
+                    result[i] = "gray"
         return result
-            
+
+    def getFinished(self):
+        return self.finished
+
     # contains (n, lst) searches for n within lst, returns the index of lst, if found. 
     # Else returns false
     @staticmethod
@@ -88,13 +94,13 @@ class Game:
     @staticmethod
     def checkWin(result):
         for x in result:
-            if (not x == "Green"):
+            if (not x == "green"):
                 return False
         return True
 
 def main():
     print("blah")
-    game = Game(5, 5, "pound")
+    game = GameText(5, 5, "pound")
     game.main()
 
 if (__name__ == "__main__"):
