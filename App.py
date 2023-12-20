@@ -14,7 +14,7 @@ class App(tk.Tk):
         title = ttk.Label(text="Wordle", font="Helvetica 24 bold")
         title.pack()
         
-        self.input = Input(self)
+        self.input = Input(self, GameSystem(self,5,5,"pound"))
 
         self.mainloop()
 

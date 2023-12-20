@@ -3,13 +3,15 @@ import tkinter.ttk as ttk
 from GameSystem import GameSystem
 
 class Input(ttk.Frame):
-    def __init__(self, parent):
+    def __init__(self, parent, gs):
         super().__init__(parent)
         self.pendingGuess = False
         self.currentEntry = ""
 
-        self.gs = GameSystem(self,5,5,"pound")
+        #game system
+        self.gs = gs
 
+        #frame with entry area and button 
         self.inputFrame = ttk.Frame(master=self)
         self.entry = ttk.Entry()
         self.entryWord = tk.StringVar()
