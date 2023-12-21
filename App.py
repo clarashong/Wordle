@@ -20,6 +20,7 @@ class App(tk.Tk):
 
     def genStartMenu(self):
         frame = ttk.Frame(master=self)
+
         title = ttk.Label(master=frame, 
                           text="Wordle", 
                           font="Helvetica 40 bold")
@@ -31,7 +32,7 @@ class App(tk.Tk):
                          font="Helvetica 16")
         cap1.pack()
 
-
+        # tracking the scale value
         v = tk.IntVar()
         scale = tk.Scale(master=frame, 
                          variable=v, 
