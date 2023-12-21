@@ -7,7 +7,7 @@ class Input(ttk.Frame):
         super().__init__(parent)
         self.pendingGuess = False
         self.currentEntry = ""
-
+        self.parent = parent
         #game system
         self.gs = gs
 
@@ -39,74 +39,72 @@ class Input(ttk.Frame):
     def pressed(self):
         self.currentEntry = self.entryWord.get()
         self.pendingGuess = True
-        print ("pending guess is true")
         print (self.currentEntry)
         self.entry.delete(0, 'end')
+
         self.gs.update(self.currentEntry)
-        return
+        if (self.gs.getFinished()):
+            if (self.gs.getGuessNum() < self.gs.getMax()):
+                screen = self.genWinScreen() 
+            else: 
+                screen = self.genLoseScreen() 
+            screen.pack() 
+            self.destroy() 
+        
+        
     
-    def getPendingGuess(self):
-        return self.pendingGuess
-    
-    def getCurrentEntry(self):
-        return self.currentEntry
-    
-    def setPendingGuess(self, new):
-        print ("pending guess is now "+ new)
-        self.pendingGuess = new
+    def genWinScreen(self): 
+        screen = tk.Frame() 
+        title = ttk.Label(master=screen, 
+                          text="YOU WIN!", 
+                          font="Helvetica 40 bold")
+        title.pack(pady=5)
 
-"""
-class Input:
-    def __init__(self):
-        self.interface = tk.Frame()
-        self.pendingGuess = False
-        self.currentEntry = ""
-        self.entry = ttk.Entry()
-        self.entryWord = tk.StringVar()
-        self.submit = ttk.Button()
+        message = tk.Message(master=screen,
+                            text="Congrats you got it in {} guesses!".format(self.gs.getGuessNum()),
+                            font="Helvetica 12")
+        message.pack(expand=True)
 
-        #setup the display
-        self.setup()
-    
-    #setup(self) initialises the interface 
-    def setup(self):
-        self.interface.columnconfigure(index=0,weight=2)
-        self.interface.columnconfigure(index=1,weight=1)
-        self.entry = ttk.Entry(master=self.interface, textvariable=self.entryWord)
-        self.submit = ttk.Button(master=self.interface, text="Submit", command=self.pressed)
+        # play again button 
+        button = ttk.Button(
+            master=screen,
+            text="PLAY AGAIN", 
+            command=self.restart)
+        button.pack(pady=5)
 
-        self.entry.grid(row=0, column=0, padx=2, sticky="W")
-        self.submit.grid(row=0, column=1, padx=2, sticky="W")
+        return screen 
+        
+    def genLoseScreen(self):
+        screen = tk.Frame() 
+        title = ttk.Label(master=screen, 
+                          text="YOU LOSE!", 
+                          font="Helvetica 40 bold")
+        title.pack(pady=5)
 
-    #pressed will return the current guess that within entry
-    def pressed(self):
-        self.currentEntry = self.entryWord.get()
-        self.pendingGuess = True
-        print ("pending guess is true")
-        print (self.currentEntry)
-        self.entry.delete(0, 'end')
-        return
-    
-    #Accessors and modifiers 
-    def getInterface(self):
-        return self.interface
-    
-    def getPendingGuess(self):
-        return self.pendingGuess
-    
-    def getCurrentEntry(self):
-        return self.currentEntry
-    
-    def setPendingGuess(self, new):
-        print ("pending guess is now "+ new)
-        self.pendingGuess = new
+        message = tk.Message(master=screen,
+                            text="Sorry, the correct answer was " + self.gs.getSolution() +".",
+                            font="Helvetica 12")
+        message.pack()
+
+        # play again button 
+        button = ttk.Button(
+            master=screen,
+            text="PLAY AGAIN", 
+            command=self.restart)
+        button.pack(pady=5)
+
+        return screen 
+
+    def restart(self):
+        self.parent.playAgain()
 
         
-if (__name__ == "__main__"):
-    window = tk.Tk()
-    input = Input()
-    interface = input.getInterface()
-    interface.pack()
-    window.mainloop()
 
-"""
+    def getPendingGuess(self):
+        return self.pendingGuess
+    
+    def getCurrentEntry(self):
+        return self.currentEntry
+    
+    def setPendingGuess(self, new):
+        self.pendingGuess = new

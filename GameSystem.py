@@ -14,11 +14,15 @@ class GameSystem(ttk.Frame):
         self.guessNum = guessNum
         self.solution = solution
         self.invalid = None
-        print ("got game system")
+        self.finished = False
         self.board = GameBoard(self, letters, max)
 
     def update(self, guess):
         result = []
+
+        if (self.guessNum >= self.max-1): 
+            self.finished = True
+
         if (not self.invalid is None):
                 self.invalid.destroy()
         if (self.game.checkValid(guess)):
@@ -29,6 +33,11 @@ class GameSystem(ttk.Frame):
         else:
             self.invalid = self.genInvalidMsg()
             self.invalid.pack(pady=3)
+
+        if (guess == self.solution):
+            self.finished = True
+
+        
             
 
     def genInvalidMsg(self): 
@@ -39,14 +48,22 @@ class GameSystem(ttk.Frame):
         return message
 
 
-    def takeGuess(self):
-        pass
+    def getGuessNum(self):
+        return self.guessNum
+
+    def getMax(self):
+        return self.max
 
     def getBoard(self):
         return self.board
     
     def getFinished(self):
-        return self.game.getFinished()
+        return self.finished
+    
+    def getSolution(self):
+        return self.solution
+    
+
     
 
 

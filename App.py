@@ -66,6 +66,10 @@ class App(tk.Tk):
 
         self.input = Input(self, GameSystem(self,self.letters,self.max,solution))
 
+    def playAgain(self): 
+        self.destroy() 
+        App ("Wordle Clone") 
+
 if (__name__ == "__main__"):
     App("Wordle Clone")
 
