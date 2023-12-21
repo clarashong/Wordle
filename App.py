@@ -4,6 +4,7 @@ from GameText import GameText
 from GameBoard import GameBoard
 from GameSystem import GameSystem
 from Input import Input
+from WordChooser import WordChooser as wc 
 
 class App(tk.Tk):
     def __init__(self, title):
@@ -59,7 +60,11 @@ class App(tk.Tk):
         title = ttk.Label(text="Wordle", font="Helvetica 24 bold")
         title.pack()
         
-        self.input = Input(self, GameSystem(self,self.letters,self.max,"pound"))
+        wordChooser = wc(self.letters) 
+        solution = wordChooser.getWord()
+        print(solution)
+
+        self.input = Input(self, GameSystem(self,self.letters,self.max,solution))
 
 if (__name__ == "__main__"):
     App("Wordle Clone")
