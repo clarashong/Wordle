@@ -2,9 +2,12 @@ import os
 import openpyxl
 import random
 
+# WordChooser works with the file "wordsList.xlsx" (that was prepared by WordsListGenerator) 
 class WordChooser:
     def __init__(self, letters):
+        # name of sheet 
         self.sheet = str(letters) + " letters"
+        # name of excel file
         self.wb = openpyxl.load_workbook("wordsList.xlsx")
         self.word = self.genWord()
 
@@ -20,8 +23,6 @@ class WordChooser:
     def getWord(self): 
         return self.word
 
-WordChooser(5)
-WordChooser(3)
 
 
 
