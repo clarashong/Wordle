@@ -42,10 +42,6 @@ Keep guessing until the solution is reached or guesses are maxed out: \
 Wordle belongs to New York Times. This is simply a fan remake. Play the original game here: 
 [https://www.nytimes.com/games/wordle/index.html](https://www.nytimes.com/games/wordle/index.html)
 
-## Features
-
-If your project has a lot of features, list them here.
-
 ## How to Contribute
 
 Not accepting contributions. 
