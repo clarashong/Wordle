@@ -23,7 +23,7 @@ class GameSystem(ttk.Frame):
         if (not self.invalid is None):
                 self.invalid.destroy()
         if (self.game.checkValid(guess)):
-            result = self.game.evaluate(guess, self.solution)
+            result = self.game.evaluate(guess, list(self.solution))
             self.board.updateDisplay(self.guessNum, guess, result)
             # add a guess
             self.guessNum += 1

@@ -63,6 +63,7 @@ class App(tk.Tk):
         
         wordChooser = wc(self.letters) 
         solution = wordChooser.getWord()
+        # print(solution)
 
         self.input = Input(self, GameSystem(self,self.letters,self.max,solution))
 

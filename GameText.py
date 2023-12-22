@@ -45,7 +45,7 @@ class GameText:
     def evaluate(self, guess, sol): 
         result = []
         guess = list(guess)
-        checked = set()
+        checked = set({})
 
         #checks for all the greens first
         for i in range (0, len(sol)):
@@ -53,39 +53,42 @@ class GameText:
             if (guess[i] == sol[i]):
                 result.append("green")
                 checked.add(i)
-            else: result.append("")
+            else: 
+                result.append("")
 
         for i in range (0, len(sol)):
-            #get where that letter is located
+            # get where that letter is located
             index = self.contains(guess[i], sol)
             if (result[i] == "") :
-                #latest not checked occurence of letter
+                # latest not checked occurence of letter
                 if (index in checked and index < len(sol)-1):
                     index = self.contains(guess[i], sol[index+1::])
                 
-                #letter not found in solution
-                if (index == False):
+                # letter not found in solution
+                if (index == -1):
+
                     result[i] = "gray"
-                #right letter, wrong space, and now checked already
-                elif(not index in checked) :
+                # right letter, wrong space, and not checked already
+                elif(not index in checked):
                     result[i] = "yellow"
                     checked.add(index)
-                #wrong letter, wrong space
+                # wrong letter, wrong space
                 else:
                     result[i] = "gray"
+
         return result
 
     def getFinished(self):
         return self.finished
 
     # contains (n, lst) searches for n within lst, returns the index of lst, if found. 
-    # Else returns false
+    # Else returns -1
     @staticmethod
     def contains(n, lst):
-        for i, d in enumerate(lst):
-            if (n == d):
+        for i in range (0, len(lst)):
+            if (n == lst[i]):
                 return i
-        return False
+        return -1
 
     def getGuessNum(self):
         return self.guessNum
@@ -97,15 +100,7 @@ class GameText:
             if (not x == "green"):
                 return False
         return True
-
-def main():
-    print("blah")
-    game = GameText(5, 5, "pound")
-    game.main()
-
-if (__name__ == "__main__"):
-    main()
-            
+   
 
 
 
