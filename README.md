@@ -24,10 +24,23 @@ pip install tk
 ```
 
 ## Usage
-
-## Credits
+Start the game by choosing the number of letters and clicking READY: \
+\
+<img src="Images/wordle1.png" alt="drawing" width="300"/> 
+\
+Play by typing guesses into the text box and pressing submit: \
+\
+<img src="Images/wordle2.png" alt="drawing" width="300"/>
+\
+Keep guessing until the solution is reached or guesses are maxed out: \
+\
+<img src="Images/wordle4.png" alt="drawing" width="300"/>
+\
+<img src="Images/wordle5.png" alt="drawing" width="300"/>
 
 ## License
+Wordle belongs to New York Times. This is simply a fan remake. Play the original game here: 
+[https://www.nytimes.com/games/wordle/index.html](https://www.nytimes.com/games/wordle/index.html)
 
 ## Features
 
