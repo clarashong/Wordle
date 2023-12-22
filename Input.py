@@ -8,6 +8,7 @@ class Input(ttk.Frame):
         self.pendingGuess = False
         self.currentEntry = ""
         self.parent = parent
+        
         #game system
         self.gs = gs
 
@@ -37,9 +38,8 @@ class Input(ttk.Frame):
 
     #pressed will return the current guess that within entry
     def pressed(self):
-        self.currentEntry = self.entryWord.get()
+        self.currentEntry = self.entryWord.get().lower()
         self.pendingGuess = True
-        print (self.currentEntry)
         self.entry.delete(0, 'end')
 
         self.gs.update(self.currentEntry)
@@ -49,7 +49,6 @@ class Input(ttk.Frame):
                 screen = self.genWinScreen() 
                 screen.pack() 
             else: 
-                print("last guess")
                 if (self.currentEntry == self.gs.getSolution()):
                     screen = self.genWinScreen()   
                 else: 

@@ -41,6 +41,7 @@ class App(tk.Tk):
                          orient="horizontal")  
         scale.pack(pady=3)
 
+        # start buttton 
         button = ttk.Button(
             master=frame,
             text="READY", 
@@ -62,10 +63,10 @@ class App(tk.Tk):
         
         wordChooser = wc(self.letters) 
         solution = wordChooser.getWord()
-        print(solution)
 
         self.input = Input(self, GameSystem(self,self.letters,self.max,solution))
 
+    # destroys the current game to play again 
     def playAgain(self): 
         self.destroy() 
         App ("Wordle Clone") 
