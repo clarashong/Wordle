@@ -2,8 +2,8 @@
 
 ## Description
 
-This project is a recreation of New York Times' Worldle game with added settings were the player can choose the number of letters to guess. 
-The goal of this project was to have fun creating a game I already enjoyed as well as try out the Tkinter Library in Python. 
+This project is a recreation of New York Times' Wordle game with added settings were the player can choose the number of letters to guess. 
+The goal of this project was to have fun creating a game I already enjoyed, as well as try out the Tkinter Library in Python. 
 This was my first time using Tkinter, and I learned a lot about the widget system and creating a GUI. 
 As a bonus, I tried out Openpyxl to generate an excel sheet for the game's word list. 
 
