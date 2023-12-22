@@ -43,12 +43,18 @@ class Input(ttk.Frame):
         self.entry.delete(0, 'end')
 
         self.gs.update(self.currentEntry)
+        
         if (self.gs.getFinished()):
             if (self.gs.getGuessNum() < self.gs.getMax()):
                 screen = self.genWinScreen() 
+                screen.pack() 
             else: 
-                screen = self.genLoseScreen() 
-            screen.pack() 
+                print("last guess")
+                if (self.currentEntry == self.gs.getSolution()):
+                    screen = self.genWinScreen()   
+                else: 
+                    screen = self.genLoseScreen() 
+                screen.pack() 
             self.destroy() 
         
         
@@ -60,9 +66,10 @@ class Input(ttk.Frame):
                           font="Helvetica 40 bold")
         title.pack(pady=5)
 
-        message = tk.Message(master=screen,
+        message = tk.Label(master=screen,
                             text="Congrats you got it in {} guesses!".format(self.gs.getGuessNum()),
-                            font="Helvetica 12")
+                            font="Helvetica 12",
+                            anchor="center") 
         message.pack(expand=True)
 
         # play again button 
@@ -81,8 +88,8 @@ class Input(ttk.Frame):
                           font="Helvetica 40 bold")
         title.pack(pady=5)
 
-        message = tk.Message(master=screen,
-                            text="Sorry, the correct answer was " + self.gs.getSolution() +".",
+        message = tk.Label(master=screen,
+                            text="The correct answer was " + self.gs.getSolution().upper() +".", 
                             font="Helvetica 12")
         message.pack()
 

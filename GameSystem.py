@@ -20,9 +20,6 @@ class GameSystem(ttk.Frame):
     def update(self, guess):
         result = []
 
-        if (self.guessNum >= self.max-1): 
-            self.finished = True
-
         if (not self.invalid is None):
                 self.invalid.destroy()
         if (self.game.checkValid(guess)):
@@ -30,12 +27,16 @@ class GameSystem(ttk.Frame):
             self.board.updateDisplay(self.guessNum, guess, result)
             # add a guess
             self.guessNum += 1
+            
+            if (self.guessNum >= self.max): 
+                self.finished = True
         else:
             self.invalid = self.genInvalidMsg()
             self.invalid.pack(pady=3)
 
         if (guess == self.solution):
             self.finished = True
+        
 
         
             

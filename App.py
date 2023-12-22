@@ -71,6 +71,6 @@ class App(tk.Tk):
         App ("Wordle Clone") 
 
 if (__name__ == "__main__"):
-    App("Wordle Clone")
+    App("Wordle Clone") 
 
 
