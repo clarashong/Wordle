@@ -6,7 +6,7 @@ This project is a recreation of New York Times' "Wordle" with added settings whe
 Play the actual New York Times game here: 
 [https://www.nytimes.com/games/wordle/index.html](https://www.nytimes.com/games/wordle/index.html) \
 I do not own the game, and this project was just programming practice. 
-The goal of this game remake was to have fun re-creating a game I already enjoyed, as well as to try out the Tkinter Library in Python. 
+The goal of this game remake was to have fun recreating a game I already enjoyed, as well as to try out the Tkinter Library in Python. 
 This was my first time using Tkinter, and I learned a lot about the widget system and creating a GUI. 
 As a bonus, I experimented with Openpyxl to generate an excel sheet for the game's word list. 
 
