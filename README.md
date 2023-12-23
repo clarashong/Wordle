@@ -1,11 +1,14 @@
-# Wordle Game
+# Wordle Remake Game
 
 ## Description
 
-This project is a recreation of New York Times' Wordle game with added settings were the player can choose the number of letters to guess. 
-The goal of this project was to have fun creating a game I already enjoyed, as well as try out the Tkinter Library in Python. 
+This project is a recreation of New York Times' "Wordle" with added settings where the player can choose the number of letters to guess.
+Play the actual New York Times game here: 
+[https://www.nytimes.com/games/wordle/index.html](https://www.nytimes.com/games/wordle/index.html) \
+I do not own the game, and this project was just programming practice. 
+The goal of this game remake was to have fun re-creating a game I already enjoyed, as well as to try out the Tkinter Library in Python. 
 This was my first time using Tkinter, and I learned a lot about the widget system and creating a GUI. 
-As a bonus, I tried out Openpyxl to generate an excel sheet for the game's word list. 
+As a bonus, I experimented with Openpyxl to generate an excel sheet for the game's word list. 
 
 ## Installation
 
@@ -39,8 +42,7 @@ Keep guessing until the solution is reached or guesses are maxed out: \
 <img src="Images/wordle5.png" alt="drawing" width="300"/>
 
 ## License
-Wordle belongs to New York Times. This is simply a fan remake. Play the original game here: 
-[https://www.nytimes.com/games/wordle/index.html](https://www.nytimes.com/games/wordle/index.html)
+Wordle belongs to New York Times. This is simply a fan remake.
 
 ## How to Contribute
 
