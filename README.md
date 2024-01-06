@@ -1,4 +1,4 @@
-# Wordle Remake Game
+# Wordle Clone Game
 
 ## Description
 
