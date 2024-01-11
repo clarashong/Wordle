@@ -1,7 +1,7 @@
 # Wordle Clone Game
+By **Clara Hong** (clarashong)
 
 ## Description
-
 This project is a recreation of New York Times' "Wordle" with added settings where the player can choose the number of letters to guess.
 Play the actual New York Times game here: 
 [https://www.nytimes.com/games/wordle/index.html](https://www.nytimes.com/games/wordle/index.html) \
